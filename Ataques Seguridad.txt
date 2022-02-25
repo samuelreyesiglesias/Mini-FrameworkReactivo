@@ -1,0 +1,27 @@
+Ataques	Seguridad
+Inseguro	Depende	Seguro	Otro
+Ataque
+de Renegociación	—	3.7% (−0.2%)
+soporta renegociación insegura	1.2% (±0.0%)
+soporta ambos	90.0% (+0.5%)
+soporta renegociación segura	5.1% (−0.3%)
+sin soporte
+Ataque RC4	1.3% (−0.1%)
+permite sólo cifrados RC4	26.6% (−0.7%)
+permite cifrados RC4 usado con navegadores modernos	53.2% (−0.7%)
+soporta algunos cifrados RC4	20.2% (+1.4%)
+sin soporte	—
+Ataque BEAST
+(mitigado en el lado del cliente con navegadores modernos)	—	77.4% (+0.6%)
+vulnerable	—	—	—
+Ataque CRIME	—	7.2% (−0.4%)
+vulnerable	—	—	—
+Heartbleed	—	0.3% (−0.1%)
+vulnerable	—	—	—
+Ataque de inyección ChangeCipherSpec	—	3.3% (−0.4%)
+vulnerable y explotable	15.5% (−1.1%)
+vulnerable, no explotable	80.1% (+1.3%)
+no vulnerable	1.0% (+0.1%)
+desconocido
+POODLE contra TLS
+(POODLE Original contra SSL 3.0 no está incluido)	—
