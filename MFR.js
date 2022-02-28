@@ -3,9 +3,10 @@ class mfr {
     deps = new Map();
 
     constructor(options) {
+        //origen de datos
         this.origen = options.data();
         const self = this;
-        //destino
+        //destino de datos
         this.$data = new Proxy(this.origen, {
             get(target, name) {
                 if (Reflect.has(target, name)) {
@@ -14,7 +15,6 @@ class mfr {
                 }
                 console.warn("No existe el atributo: " + name);
                 return "";
-                console.log(target, name)
             },
             set(target, name, value) {
                 Reflect.set(target, name, value);
@@ -31,6 +31,10 @@ class mfr {
                 document.querySelectorAll(`*[m-text=${name}]`).forEach(element => {
                     this.mText(element, target, name);
                 });
+                document.querySelectorAll(`*[m-model=${name}]`).forEach(element => {
+                    this.mModel(element, target, name);
+                });
+
             }
             this.deps.set(name, effect);
         }
@@ -42,6 +46,10 @@ class mfr {
     }
 
     mount() {
+        document.querySelectorAll("*[m-bind]").forEach(element => {
+            const [attr, name] = element.getAttribute("m-bind").match(/(\w+)/g);
+            this.mBind(element, this.$data, name, attr);
+        });
         document.querySelectorAll("*[m-text]").forEach(element => {
             this.mText(element, this.$data, element.getAttribute("m-text"));
         });
@@ -50,7 +58,6 @@ class mfr {
             this.mModel(element, this.$data, name);
             element.addEventListener("input", () => {
                 Reflect.set(this.$data, name, element.value);
-                //this.$data[name] = e.target.value;
             });
         });
     }
@@ -62,6 +69,11 @@ class mfr {
     mModel(element, target, name) {
         element.value = Reflect.get(target, name);
     }
+
+    mBind(element, target, name, attr) {
+        element.setAttribute(attr, Reflect.get(target, name));
+    }
+
 }
 
 var mf = {

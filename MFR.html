@@ -12,7 +12,12 @@
     <div id="app">
         <h1 m-text="NameApp1"></h1>
         <br>
+        <input type="text" m-model="NameApp1" m-bind="style:red"><br>
         <input type="text" m-model="NameApp1"><br>
+        <img m-bind="src:SrcImage" width="100px" height="100px">
+    </div>
+    <div id="app2">
+
     </div>
     <script src="MFR.js"></script>
     <script>
@@ -22,7 +27,9 @@
         const app = createApp({
             data() {
                 return {
-                    NameApp1: 'App #1'
+                    NameApp1: 'App #1',
+                    SrcImage: "peppers-25384_960_720.png",
+                    red: "color:#ff0000"
                 }
             }
         });
