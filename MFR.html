@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MFR</title>
 </head>
+
 <body>
     <div id="app">
         <h1 m-text="NameApp1"></h1>
-        <br>  
-        <input type="text" m-model="mensaje2"><br> 
+        <br>
+        <input type="text" m-model="NameApp1"><br>
     </div>
     <script src="MFR.js"></script>
     <script>
-        const {createApp} = mf;
+        const {
+            createApp
+        } = mf;
         const app = createApp({
             data() {
                 return {
-                    NameApp1: 'App #1',
-                    mensaje2: "Hello Vue"
+                    NameApp1: 'App #1'
                 }
             }
         });
         app.mount('#app');
     </script>
 </body>
+
 </html>
